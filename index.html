@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CraftTech Store</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f8f8f8;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .banner {
+      background: url('https://images.unsplash.com/photo-1602526218855-6c2adf688b4e') no-repeat center center/cover;
+      height: 300px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .banner h2 {
+      font-size: 2.5rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem 2rem;
+    }
+
+    .categories {
+      margin: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .categories button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .categories button:hover {
+      background-color: #555;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1rem;
+    }
+
+    .product-info h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .product-info p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .add-to-cart {
+      background-color: #28a745;
+      border: none;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .add-to-cart:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CraftTech Store</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Clothing</a>
+      <a href="#">Electronics</a>
+      <a href="#">Handmade</a>
+      <a href="#">Cart</a>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <h2>Welcome to CraftTech - Explore Unique Finds</h2>
+  </div>
+
+  <div class="categories">
+    <button onclick="filterCategory('all')">All</button>
+    <button onclick="filterCategory('clothing')">Clothing</button>
+    <button onclick="filterCategory('electronics')">Electronics</button>
+    <button onclick="filterCategory('handmade')">Handmade</button>
+  </div>
+
+  <div class="products" id="product-list">
+    <!-- Product cards -->
+    <div class="product-card clothing">
+      <img src="" alt="T-Shirt">
+      <div class="product-info">
+        <h3>Casual T-Shirt</h3>
+        <p>Comfortable cotton t-shirt in various sizes.</p>
+        <div class="price">$19.99</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card electronics">
+      <img src="https://images.unsplash.com/photo-1587574293340-7d015d7ed006" alt="Headphones">
+      <div class="product-info">
+        <h3>Wireless Headphones</h3>
+        <p>High-quality audio with noise-cancellation feature.</p>
+        <div class="price">$89.99</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card handmade">
+      <img src="https://images.unsplash.com/photo-1603366615917-1fa6dad5c4e4" alt="Handmade Mug">
+      <div class="product-info">
+        <h3>Handmade Ceramic Mug</h3>
+        <p>Beautifully crafted mug perfect for gifting.</p>
+        <div class="price">$14.50</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card clothing">
+      <img src="https://images.unsplash.com/photo-1618354691435-d66e2e8f1e70" alt="Jacket">
+      <div class="product-info">
+        <h3>Winter Jacket</h3>
+        <p>Stay warm with our stylish winter collection.</p>
+        <div class="price">$59.00</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card electronics">
+      <img src="https://images.unsplash.com/photo-1587202372775-9897370981c3" alt="Smart Watch">
+      <div class="product-info">
+        <h3>Smart Watch</h3>
+        <p>Track your fitness and notifications on the go.</p>
+        <div class="price">$129.99</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card handmade">
+      <img src="https://images.unsplash.com/photo-1616587891657-308e60d4cd5b" alt="Handmade Basket">
+      <div class="product-info">
+        <h3>Woven Basket</h3>
+        <p>Eco-friendly handmade basket for home decor.</p>
+        <div class="price">$25.00</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 CraftTech Store. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function filterCategory(category) {
+      const products = document.querySelectorAll(".product-card");
+      products.forEach(product => {
+        if (category === "all") {
+          product.style.display = "block";
+        } else {
+          if (product.classList.contains(category)) {
+            product.style.display = "block";
+          } else {
+            product.style.display = "none";
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
